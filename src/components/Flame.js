@@ -16,8 +16,15 @@ function Flame() {
     const [outputElement,setOutputElement] = useState("");
 
     const handleEventCalculate = () => {
-        let arrInput1 = input1Text.split("");
-        let arrInput2 = input2Text.split("");
+        let checkInput1 = input1Text.trim();
+        let checkInput2 = input2Text.trim();
+        if((checkInput1 === "") || (checkInput2 === "")){
+            setOutputElement("Please Enter valid input");
+            return
+        }
+
+        let arrInput1 = checkInput1.split("");
+        let arrInput2 = checkInput2.split("");
         let letterCount = 0;
         for(let i=0;i<arrInput1.length;i++){
             for(let j=0;j<arrInput2.length;j++){
